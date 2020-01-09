@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'NgTemplate';
+  title = 'Tudo pronto!';
+  isCollapsed: boolean = true;
 }
