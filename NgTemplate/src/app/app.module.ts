@@ -15,6 +15,7 @@ import { MainPrincipalComponent } from './shared/main-principal/main-principal.c
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { MenuLoginComponent } from './shared/menu-login/menu-login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     MenuSuperiorComponent,
     FooterComponent,
     MainPrincipalComponent,
-    HomeComponent
+    HomeComponent,
+    MenuLoginComponent
   ],
   imports: [
     BrowserModule,
