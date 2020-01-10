@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeoModel, SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-lista-eventos',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaEventosComponent implements OnInit {
 
-  constructor() { }
+  constructor(seoService: SeoService) {
+    let seoModel: SeoModel = <SeoModel>{
+        title: 'Próximos Eventos',
+        description: 'Lista dos próimos eventos técnicos no Brasil',
+        robots:'Index,Follow',
+        keywords: 'eventos,workshops,encontros,congressos'
+    };
+
+    seoService.setSeoData(seoModel);
+   }
 
   ngOnInit() {
   }

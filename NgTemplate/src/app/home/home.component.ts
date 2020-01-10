@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeoService, SeoModel } from '../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(seoService: SeoService) {
+    let seoModel: SeoModel = <SeoModel>{
+        title: 'Seja bem vindo',
+        robots: 'Index,Follow'
+    };
+
+    seoService.setSeoData(seoModel);
+   }
 
   ngOnInit() {
   }
