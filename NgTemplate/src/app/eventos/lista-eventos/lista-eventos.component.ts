@@ -8,6 +8,9 @@ import { SeoModel, SeoService } from 'src/app/services/seo.service';
 })
 export class ListaEventosComponent implements OnInit {
 
+  // contador: number = 0;
+  // textClass: string = "";
+
   constructor(seoService: SeoService) {
     let seoModel: SeoModel = <SeoModel>{
         title: 'Próximos Eventos',
@@ -21,5 +24,9 @@ export class ListaEventosComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // clickContador(){
+  //   this.contador++;
+  // }
 
 }

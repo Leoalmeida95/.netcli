@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {rootRouterConfig} from './app.routes';
+import { FormsModule } from '@angular/forms';
 
 //boostrap
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -36,6 +37,7 @@ import { SeoService } from './services/seo.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(), //utiliza o forRoot para que o componente entenda que se trata do modulo raiz
     CarouselModule.forRoot(),
