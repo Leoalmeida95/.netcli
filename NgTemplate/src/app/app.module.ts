@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {rootRouterConfig} from './app.routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //boostrap
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -23,6 +23,7 @@ import { ListaEventosComponent } from './eventos/lista-eventos/lista-eventos.com
 
 //services
 import { SeoService } from './services/seo.service';
+import { InscricaoComponent } from './usuario/inscricao/inscricao.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,14 @@ import { SeoService } from './services/seo.service';
     MainPrincipalComponent,
     HomeComponent,
     MenuLoginComponent,
-    ListaEventosComponent
+    ListaEventosComponent,
+    InscricaoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(), //utiliza o forRoot para que o componente entenda que se trata do modulo raiz
     CarouselModule.forRoot(),
