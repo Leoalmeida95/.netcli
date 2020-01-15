@@ -66,7 +66,7 @@ export class InscricaoComponent implements OnInit, AfterViewInit {
     if(this.inscricaoForm.valid && this.inscricaoForm.dirty){
       org = Object.assign({},this.organizador, this.inscricaoForm.value);
       
-      //POSTERIORMENTE CHAMA O WEB API
+      //POSTERIORMENTE CHAMA O WEB API PARA SALVAR O ORG
       } 
 
     }
