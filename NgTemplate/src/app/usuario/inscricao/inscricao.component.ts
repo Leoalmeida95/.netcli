@@ -6,7 +6,8 @@ import { Observable, fromEvent, merge } from 'rxjs';
 
 @Component({
   selector: 'app-inscricao',
-  templateUrl: './inscricao.component.html'
+  templateUrl: './inscricao.component.html',
+  styleUrls: ['./inscricao.css']
 })
 export class InscricaoComponent implements OnInit, AfterViewInit {
 
