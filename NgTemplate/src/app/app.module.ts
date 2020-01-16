@@ -21,6 +21,9 @@ import { HomeComponent } from './home/home.component';
 import { MenuLoginComponent } from './shared/menu-login/menu-login.component';
 import { ListaEventosComponent } from './eventos/lista-eventos/lista-eventos.component';
 
+//3's componentes
+import {CustomFormsModule} from 'ng2-validation';
+
 //services
 import { SeoService } from './services/seo.service';
 import { InscricaoComponent } from './usuario/inscricao/inscricao.component';
@@ -40,6 +43,7 @@ import { InscricaoComponent } from './usuario/inscricao/inscricao.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CustomFormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(), //utiliza o forRoot para que o componente entenda que se trata do modulo raiz

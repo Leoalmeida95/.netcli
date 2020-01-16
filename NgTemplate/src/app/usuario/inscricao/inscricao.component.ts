@@ -1,8 +1,17 @@
+//angular
 import { Component, OnInit, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControlName } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControlName, FormControl } from '@angular/forms';
+
+//componentes reativos
+import { Observable, fromEvent, merge } from 'rxjs';
+
+//componentes externos
+import {CustomValidators} from 'ng2-validation';
+
+//utilidades
 import { Organizador } from '../models/organizador';
 import { GenericValidator } from 'src/app/utils/generic.form.validator';
-import { Observable, fromEvent, merge } from 'rxjs';
+
 
 @Component({
   selector: 'app-inscricao',
@@ -29,7 +38,8 @@ export class InscricaoComponent implements OnInit, AfterViewInit {
         maxLength: 'O nome precisa ter no máximo 150 caracteres'
       },
       cpf: {
-        required: 'Informe o CPF'
+        required: 'Informe o CPF',
+        rangeLength: 'CPF deve conter 11 caracteres'
       },
       email: {
         required: 'Informe o e-mail',
@@ -42,6 +52,7 @@ export class InscricaoComponent implements OnInit, AfterViewInit {
       senhaConfirmacao: {
         required: 'Informe a senha novamente',
         minlength: 'A senha deve possuir no mínimo 6 caracteres',
+        equalTo: 'As senhas devem ser iguais'
       }
     };
 
@@ -50,12 +61,16 @@ export class InscricaoComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit() {
+
+    let senha = new FormControl('',[Validators.required, Validators.minLength(6)]);
+    let senhaConfirmacao = new FormControl('',[Validators.required, Validators.minLength(6), CustomValidators.equalTo(senha)]);
+
     this.inscricaoForm = this.fb.group({
         nome: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
-        cpf: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.email]],
-        senha: ['', [Validators.required, Validators.minLength(6)]],
-        senhaConfirmacao: ['', [Validators.required, Validators.minLength(6)]] 
+        cpf: ['', [Validators.required, CustomValidators.rangeLength([11,11])]],
+        email: ['', [Validators.required, CustomValidators.email]],
+        senha: senha,
+        senhaConfirmacao: senhaConfirmacao 
     });
   }
 
